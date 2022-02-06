@@ -14,6 +14,7 @@ Text Domain: axoncodes
 */
 
 
+require_once('inc/premiumFunctions/');
 require_once('inc/AXONGLITCH.php');
 require_once('inc/categoriesOrganizer.php');
 require_once('inc/shortcodes/index.php');
