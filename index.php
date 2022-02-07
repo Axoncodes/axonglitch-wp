@@ -22,6 +22,7 @@ require_once('inc/shortcodes/index.php');
 require_once('Templates/quiz/quiz-function-template.php');
 require_once('Templates/faq/faq-function-template.php');
 require_once('Templates/multi-thumbnail/functions-template.php');
+require_once('Templates/widgetLatestPosts/index.php');
 
 
 ?>
