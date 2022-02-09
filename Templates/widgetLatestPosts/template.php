@@ -9,7 +9,7 @@
     <div class="lf_item">
       <a href="<?php the_permalink(); ?>">
         <div class="lf_poster">
-          <?php echo wordpressAXCustomImage(
+          <?php echo axgImgen(
             get_the_post_thumbnail_url(), 
             get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', TRUE), 
             "", "", "lazy", "", "", 
