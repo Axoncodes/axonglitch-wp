@@ -24,6 +24,7 @@ require_once('Templates/faq/faq-function-template.php');
 require_once('Templates/multi-thumbnail/functions-template.php');
 require_once('Templates/widgetLatestPosts/index.php');
 require_once('libraries.php');
+require_once('Templates/categorySlider/index.php');
 
 
 ?>
