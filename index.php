@@ -4,10 +4,10 @@
  * @package axonplugin
  */
 /*
-Plugin Name: axgWp
+Plugin Name: axonglitch-wp
 Plugin URI: https://axoncodes.com/
 Description: This is a plugin-library containing all required functions for the proper working of AXG WordPress themes
-Version: 1.0
+Version: 2.0
 Author: AxoncCodes
 Author URI: https://axoncodes.com/
 Text Domain: axoncodes
@@ -23,6 +23,7 @@ require_once('Templates/quiz/quiz-function-template.php');
 require_once('Templates/faq/faq-function-template.php');
 require_once('Templates/multi-thumbnail/functions-template.php');
 require_once('Templates/widgetLatestPosts/index.php');
+require_once('libraries.php');
 
 
 ?>
