@@ -25,11 +25,32 @@ function categorySlider() {
   }
 
   if ($categoryOrganizerActivation) {
-    $content .= '<div class="ax_tabs" home="'.is_front_page().'">
+    $content .= '
+    <div class="ax_tabs" home="'.is_front_page().'">
       <div id="ax_tabs_inside_cover">'.getHeadTabItemsHtml().'</div>
     </div>';
   }
 
   $content .= '</section>';
+
+  $mainIntro=get_field('main_intro');
+  if ($mainIntro) {
+    $content .= '
+    <div id="ax_headings">
+      <div class="lf_txt">
+        <h1 class="ax_heading">'.strtoupper($mainIntro['main_title']).'</h1>
+        <p class="ax_heading_p">'.$mainIntro['short_description'].'</p>
+      </div>
+    </div>';
+  }
+
+  if ($categoryOrganizerActivation) {
+    $content .= '
+    <section id="ax_services" home="'.is_front_page().'">
+      <div id="lf_cats_sub"></div>
+      <div class="ax_items"></div> 
+    </section>';
+  }
+
   return $content;
 }
