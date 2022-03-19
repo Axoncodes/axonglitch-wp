@@ -16,7 +16,7 @@
     grid-template-columns: unset!important;
   }
   section#ax_services {
-    grid-template-columns: 100% 0%;
+    grid-template-columns: 100% 0%!important;
   }
   section#ax_services .ax_items {
       grid-template-columns: 33% 33% 33%!important;

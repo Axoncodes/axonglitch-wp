@@ -17,7 +17,7 @@
           ); ?>
         </div>
         <div class="lf_context">
-          <p class="lf_title"><?php echo get_the_title(); ?></p>
+          <p class="lf_title"><?php textlimit(get_the_title(), 5) ?></p>
           <div class="lf_meta">
             <p class="lf_meta_item"><img alt="comment" width="17" height="17" src="/wp-content/themes/lightfusion/assets/icons/comment-dark.svg"><span><?php echo get_comments_number(); ?></span></p>
             <p class="lf_meta_item"><img alt="calendar" width="17" height="17" src="/wp-content/themes/lightfusion/assets/icons/calendar-dark.svg"><span><?php echo get_the_date(); ?></span></p>

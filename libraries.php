@@ -21,6 +21,3 @@ function axg_assets_loader() {
 
 }
 add_action( 'wp_enqueue_scripts', 'axg_assets_loader' );
-
-
-// js
