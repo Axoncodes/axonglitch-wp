@@ -54,3 +54,10 @@ function categorySlider() {
 
   return $content;
 }
+
+add_action( 'wp_enqueue_scripts', 'categorySlider_assets' );
+function categorySlider_assets() {
+  wp_enqueue_style( 'axg_categorySlider_style', plugin_dir_url( __FILE__ ) . 'style.css' );
+  wp_register_script('axg_categorySlider_script', plugin_dir_url( __FILE__ )."/script.js", '', array(), true);
+  wp_enqueue_script('axg_categorySlider_script');
+}

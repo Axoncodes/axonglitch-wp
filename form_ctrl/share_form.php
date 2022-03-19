@@ -5,18 +5,18 @@
 <body>
 
     <?php
-        // connection
-        include "config.php";
+            // connection
+            include "config.php";
 
-        $media = $_GET["media"];
-        $page_id = $_GET["req_page"];
-        
-        $insert = "INSERT INTO share (media, Page_Id) VALUES ('$media', '$page_id')";
-        if($conn->query($insert) === TRUE){
-            echo "inserted";
-        }else{
-            echo "Error inserted: ".$conn->error;
-        }
+            $media = $_GET['media'];
+            $page_id = $_GET['page_id'];
+            
+            $insert = "INSERT INTO share (media, Page_Id) VALUES ('$media', '$page_id')";
+            if($conn->query($insert) === TRUE){
+                echo "inserted";
+            }else{
+                echo "Error inserted: ".$conn->error;
+            }
 
     ?>
 
