@@ -2,7 +2,7 @@
 
 function generateMenuTemplates($menuName) {
   $content = '
-  <ax-elements 
+  <axg-element 
   mode="dropdown"
   headTitlecolor="#FFF4A3"
   height="70"
@@ -34,7 +34,7 @@ function generateMenuTemplates($menuName) {
     if(get_field("location_on_theme", $menuData) == $menuName && (get_field("show_on_empty", $menuData) || count(wp_get_nav_menu_items( $menuData )))) :
       $structureContent = "";
       foreach(get_field('structure', $menuData) as $structure) $structureContent .= "$structure ";
-      $content .= "<ax-elements 
+      $content .= "<axg-element 
       mode='dropdown'
       exit='". get_field('exit', $menuData) ."'
       headTitle='". get_field("headtitle", $menuData) ."'
@@ -51,9 +51,9 @@ function generateMenuTemplates($menuName) {
       targetLocator='". strtolower(str_replace(' ', '_', get_field("headtitle", $menuData))) ."_targetLocator'
       subOpening='". get_field("subopening", $menuData) ."'
       subTrigger='". get_field("subtrigger", $menuData) ."'
-      options='". json_encode(wordpressAXDropdownContent(wp_get_nav_menu_items($menuData->name))) ."'></ax-elements>";
+      options='". json_encode(wordpressAXDropdownContent(wp_get_nav_menu_items($menuData->name))) ."'></axg-element>";
     endif; endforeach;
-  $content .= '</ax-elements>';
+  $content .= '</axg-element>';
 
   echo $content;
 }
@@ -116,12 +116,12 @@ function axg_headerLogo($custom_logo_id) {
     $src = esc_url( $logo[0] );
     $alt = get_bloginfo( 'name' );
     echo '
-      <ax-elements
+      <axg-element
       mode="logo" 
       src="'.$src.'"
       link="/"
       alt="'.$alt.'"
-      ></ax-elements>
+      ></axg-element>
     ';
   }
 }

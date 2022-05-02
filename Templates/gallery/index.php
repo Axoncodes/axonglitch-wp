@@ -36,7 +36,7 @@ function wpdocs_show_gallery_image_urls( $content ) {
 function wpse_load_plugin_css() {
   $plugin_url = plugin_dir_url( __FILE__ );
 
-  wp_enqueue_style( 'style', $plugin_url . 'style.css' );
+  wp_enqueue_style( 'axg_gallery_style', $plugin_url . 'style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'wpse_load_plugin_css' );
 
