@@ -21,10 +21,11 @@
                 $icon = get_field('tap_head_icon', "category_$category->term_id")['url'] || null;
                 $active = $count==0?" ax_active":"";
                 $content .= "
-                <p data='' class='ax_item$active' id='$name-tap'>
-                    <span>$category->cat_name</span>
-                    <img class='head_tap_icon' width='20' height='20' src='$icon'>
-                </p>";
+                    <p data='' class='ax_item$active' id='$name-tap'>
+                        <span>$category->cat_name</span>
+                        <img class='head_tap_icon' width='20' height='20' src='$icon'>
+                    </p>
+                ";
                 $count++;
             }
         }return $content;

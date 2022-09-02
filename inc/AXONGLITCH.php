@@ -2,20 +2,21 @@
 
 function generateMenuTemplates($menuName) {
   $content = '
-  <axg-element 
-  mode="dropdown"
-  headTitlecolor="#FFF4A3"
-  height="70"
-  color="#282A35"
-  colorHover="#fff"
-  activeBackground="#282A35"
-  headBackground="#0000"
-  headBackgroundHover="#04AA6D"
-  structure="dropdownGroup"
-  title="Menu"
-  background="#cbcbcb"
-  subOpening="sub"
-  subTrigger="click">';
+    <axg-element 
+    mode="dropdown"
+    headTitlecolor="#FFF4A3"
+    height="70"
+    color="#282A35"
+    colorHover="#fff"
+    activeBackground="#282A35"
+    headBackground="#0000"
+    headBackgroundHover="#04AA6D"
+    structure="dropdownGroup"
+    title="Menu"
+    background="#cbcbcb"
+    subOpening="sub"
+    subTrigger="click"
+  >';
       
   $menus = wp_get_nav_menus();
   for ($i=0; $i < count($menus); $i++) {

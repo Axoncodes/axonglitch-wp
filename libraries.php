@@ -11,10 +11,11 @@ function axg_assets_loader() {
   wp_enqueue_style("axg_colorVars_style", "$source/assets/css/colorVars.css"); // colorVars
   wp_enqueue_style("axg_activationHandler_style", "$source/activationHandler/style.css"); // naturalizer
   wp_enqueue_style("axg_searchbar_style", "$source/searchbar/template/style.css"); // searchbar
+  wp_enqueue_style("axg_postsView_style", "$source/assets/css/postsView.css"); // postsView
 
   // js
-  wp_register_script("axg_registery_script", "$source/registery.js", '', array(), true); wp_enqueue_script('axg_registery_script');
-  wp_register_script("axg_dropdown_script", "$source/dropdown/FuncLibrary.js", '', array(), true); wp_enqueue_script('axg_dropdown_script');
+  wp_register_script("axg_registery_script", "$source/registery-sample.js", '', array(), true); wp_enqueue_script('axg_registery_script');
+  wp_register_script("axg_dropdown_script", "$source/dropdown/FuncLibrary-sample.js", '', array(), true); wp_enqueue_script('axg_dropdown_script');
   wp_register_script("axxg_activationHandler_script", "$source/activationHandler/index.js", '', array(), true); wp_enqueue_script('axxg_activationHandler_script');
   wp_register_script("axg_searchbar_script", "$source/searchbar/script/script.js", '', array(), true); wp_enqueue_script('axg_searchbar_script');
   wp_register_script("axg_searchbar_template_script", "$source/searchbar/template/main.js", '', array(), true); wp_enqueue_script('axg_searchbar_template_script');
