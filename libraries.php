@@ -1,5 +1,6 @@
 <?php
 
+add_action( 'wp_enqueue_scripts', 'axg_assets_loader' );
 function axg_assets_loader() {
   $source = "https://axg.axoncodes.com";
 
@@ -19,6 +20,5 @@ function axg_assets_loader() {
   wp_register_script("axxg_activationHandler_script", "$source/activationHandler/index.js", '', array(), true); wp_enqueue_script('axxg_activationHandler_script');
   wp_register_script("axg_searchbar_script", "$source/searchbar/script/script.js", '', array(), true); wp_enqueue_script('axg_searchbar_script');
   wp_register_script("axg_searchbar_template_script", "$source/searchbar/template/main.js", '', array(), true); wp_enqueue_script('axg_searchbar_template_script');
-
 }
-add_action( 'wp_enqueue_scripts', 'axg_assets_loader' );
+?>
