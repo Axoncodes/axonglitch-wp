@@ -1,6 +1,7 @@
 <?php 
 
 function generateMenuTemplates($menuName) {
+  $dropdowncount = 0;
   $content = '
     <axg-element 
     mode="dropdown"
@@ -16,6 +17,7 @@ function generateMenuTemplates($menuName) {
     background="#cbcbcb"
     subOpening="sub"
     subTrigger="click"
+    dropdownid="headerMenuGroup"
   >';
       
   $menus = wp_get_nav_menus();
@@ -35,24 +37,27 @@ function generateMenuTemplates($menuName) {
     if(get_field("location_on_theme", $menuData) == $menuName && (get_field("show_on_empty", $menuData) || count(wp_get_nav_menu_items( $menuData )))) :
       $structureContent = "";
       foreach(get_field('structure', $menuData) as $structure) $structureContent .= "$structure ";
+      // echo $menu->slug."-";
       $content .= "<axg-element 
-      mode='dropdown'
-      exit='". get_field('exit', $menuData) ."'
-      headTitle='". get_field("headtitle", $menuData) ."'
-      headTitlecolor='". get_field("headtitlecolor", $menuData) ."'
-      height='". get_field("height", $menuData) ."'
-      color='". get_field("color", $menuData) ."'
-      colorHover='". get_field("colorHover", $menuData) ."'
-      activeBackground='". get_field("activeBackground", $menuData) ."'
-      headBackground='". get_field("headBackground", $menuData) ."'
-      headBackgroundHover='". get_field("headBackgroundHover", $menuData) ."'
-      structure='". $structureContent ."'
-      title='". get_field("title", $menuData) ."'
-      background='". get_field("background", $menuData) ."'
-      targetLocator='". strtolower(str_replace(' ', '_', get_field("headtitle", $menuData))) ."_targetLocator'
-      subOpening='". get_field("subopening", $menuData) ."'
-      subTrigger='". get_field("subtrigger", $menuData) ."'
-      options='". json_encode(wordpressAXDropdownContent(wp_get_nav_menu_items($menuData->name))) ."'></axg-element>";
+        mode='dropdown'
+        exit='". get_field('exit', $menuData) ."'
+        headTitle='". get_field("headtitle", $menuData) ."'
+        headTitlecolor='". get_field("headtitlecolor", $menuData) ."'
+        height='". get_field("height", $menuData) ."'
+        color='". get_field("color", $menuData) ."'
+        colorHover='". get_field("colorHover", $menuData) ."'
+        activeBackground='". get_field("activeBackground", $menuData) ."'
+        headBackground='". get_field("headBackground", $menuData) ."'
+        headBackgroundHover='". get_field("headBackgroundHover", $menuData) ."'
+        structure='". $structureContent ."'
+        title='". get_field("title", $menuData) ."'
+        background='". get_field("background", $menuData) ."'
+        targetLocator='". strtolower(str_replace(' ', '_', get_field("headtitle", $menuData))) ."_targetLocator'
+        subOpening='". get_field("subopening", $menuData) ."'
+        subTrigger='". get_field("subtrigger", $menuData) ."'
+        options='". json_encode(wordpressAXDropdownContent(wp_get_nav_menu_items($menuData->name))) ."'
+        dropdownid='".$menu->slug."'
+      ></axg-element>";
     endif; endforeach;
   $content .= '</axg-element>';
 
@@ -83,9 +88,12 @@ function wordpressAXDropdownContent($data) {
 
 function axg_dropdownsbody($menus) {
   $content = '<section class="ax_elements" nomain="true">';
-
+  $dropdowncount = 1;
   foreach ( $menus as $menu ) {
+    
     $menuData = wp_get_nav_menu_object($menu->name);
+    $structureContent = "";
+    foreach(get_field('structure', $menuData) as $structure) $structureContent .= "$structure ";
     if(get_field('location_on_theme', $menuData)) {
       $structureContent = '';
       $structuredata = get_field('structure', $menuData);
@@ -96,14 +104,33 @@ function axg_dropdownsbody($menus) {
         ? "$structure"
         : "$structure ";
       }
-
       $id = strtolower(str_replace(' ', '_', get_field('headtitle', $menuData)));
       $id .= '_targetLocator';
-      $content .= "
-        <section class='dropdown $structureContent' mode='$structureContent' nomain='true'>
-          <div class='dropdownTakeout' id='$id'></div>
-        </section>
-      ";
+      $content .= "<axg-element
+        mode='dropdown_body'
+        exit='". get_field('exit', $menuData) ."'
+        headTitle='". get_field("headtitle", $menuData) ."'
+        headTitlecolor='". get_field("headtitlecolor", $menuData) ."'
+        height='". get_field("height", $menuData) ."'
+        color='". get_field("color", $menuData) ."'
+        colorHover='". get_field("colorHover", $menuData) ."'
+        activeBackground='". get_field("activeBackground", $menuData) ."'
+        headBackground='". get_field("headBackground", $menuData) ."'
+        headBackgroundHover='". get_field("headBackgroundHover", $menuData) ."'
+        structure='". $structureContent ."'
+        title='". get_field("title", $menuData) ."'
+        background='". get_field("background", $menuData) ."'
+        targetLocator='". strtolower(str_replace(' ', '_', get_field("headtitle", $menuData))) ."_targetLocator'
+        subOpening='". get_field("subopening", $menuData) ."'
+        subTrigger='". get_field("subtrigger", $menuData) ."'
+        options='". json_encode(wordpressAXDropdownContent(wp_get_nav_menu_items($menuData->name))) ."'
+        dropdownid='".$menu->slug."'
+      ></axg-element>";
+      // $content .= "
+      //   <section class='dropdown $structureContent' mode='$structureContent' nomain='true'>
+      //     <div class='dropdownTakeout' id='$id'></div>
+      //   </section>
+      // ";
     }
   }
   $content .= '</section>';
