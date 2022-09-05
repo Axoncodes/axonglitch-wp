@@ -1,6 +1,7 @@
 <?php 
 
 require_once('dropdown.php');
+require_once('posts.php');
 
 function axg_headerLogo($custom_logo_id) {
   if ( function_exists( 'the_custom_logo' ) ) {
